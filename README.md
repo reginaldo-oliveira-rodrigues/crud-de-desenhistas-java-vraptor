@@ -1,4 +1,4 @@
 crud-de-desenhistas-java-vraptor
-================================
+===================
 
-Aplicação web em java usando VRaptor para cadastro de desenhistas
+Este cadastro de desenhistas é um projeto-protótipo para treino de desenvolvimento web em Java usando o VRaptor da Caelum.
