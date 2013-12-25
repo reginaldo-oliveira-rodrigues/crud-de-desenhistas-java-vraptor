@@ -16,20 +16,23 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>
         var data_type = "html";
-        var url = ${pageContext.request.contextPath} + "/desenhistas/listar";
+        var url = "desenhistas/listar";
         $(document).ready(function(){
-        	
         	$.ajax({
     			dataType : data_type,
-    			data: numeros,
     			url : url,
-    			success : mostrar_dados
+    			success : mostrar_dados,
+    			error : avisarDeErro
     		});
         });
         
         function mostrar_dados(data){
         	$("#desenhistas").html(data);
-        }
+        };
+        
+        function avisarDeErro(){
+        	alert("falhou");
+        };
         
         </script>
         
