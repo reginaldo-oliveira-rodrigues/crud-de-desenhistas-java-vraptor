@@ -45,7 +45,7 @@ public class DesenhistasCRUD {
 		return desenhista;
 	}
 	
-	public List<Desenhista> listarTodos(){
+	public List<Desenhista> listar(){
 		Session session = HibernateUtils.getSession();
 		List<Desenhista> resultado = new ArrayList<Desenhista>();
 		try {

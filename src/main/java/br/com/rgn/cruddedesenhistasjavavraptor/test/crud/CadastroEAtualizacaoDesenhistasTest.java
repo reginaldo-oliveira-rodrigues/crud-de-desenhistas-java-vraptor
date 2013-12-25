@@ -20,11 +20,11 @@ public class CadastroEAtualizacaoDesenhistasTest {
 	public void setup(){
 		desenhistasCRUD = new DesenhistasCRUD();
 		desenhista = new Desenhista();
-		desenhista.setNome("Regis");
+		desenhista.setNome("Ful");
 		desenhista.setEmail("email@dominio.com");
 		desenhista.setSite("www.site.com.br");
 		
-		nomeReal = "Reginaldo";
+		nomeReal = "Fulano";
 	}
 	
 	@Test

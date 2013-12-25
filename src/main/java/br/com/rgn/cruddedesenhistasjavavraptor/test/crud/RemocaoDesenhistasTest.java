@@ -15,7 +15,7 @@ public class RemocaoDesenhistasTest {
 	public void setup(){
 		desenhistasCRUD = new DesenhistasCRUD();
 		desenhista = new Desenhista();
-		desenhista.setNome("Reginaldo");
+		desenhista.setNome("Fulano");
 	}
 	
 	@Test

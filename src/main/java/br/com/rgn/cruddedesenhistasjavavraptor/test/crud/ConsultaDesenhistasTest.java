@@ -16,13 +16,13 @@ public class ConsultaDesenhistasTest {
 	public void setup(){
 		desenhistasCRUD = new DesenhistasCRUD();
 		desenhista = new Desenhista();
-		desenhista.setNome("egi");
+		desenhista.setNome("Fu");
 		desenhista.setEmail("em");
 	}
 	
 	@Test
 	public void listarTodosDesenhistas(){
-		List<Desenhista> desenhistas = desenhistasCRUD.listarTodos();
+		List<Desenhista> desenhistas = desenhistasCRUD.listar();
 		assertEquals((desenhistas.size() > 0), true );
 	}
 	
