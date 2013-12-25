@@ -1,16 +1,21 @@
 package br.com.rgn.cruddedesenhistasjavavraptor.crud;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
-import org.hibernate.Transaction;
 
 import br.com.rgn.cruddedesenhistasjavavraptor.entity.Desenhista;
 import br.com.rgn.infrastructure.HibernateUtils;
 import br.com.rgn.utils.StringUtils;
 
+/**
+ * Classe no padrão DAO para cadastrar, atualizar, selecionar ou excluir desenhistas cadastrados. 
+ * @author regis
+ *
+ */
 public class DesenhistasCRUD {	
 
 	public Long cadastrar(Desenhista desenhista) {
@@ -25,8 +30,8 @@ public class DesenhistasCRUD {
 		Session session = HibernateUtils.getSession();
 		try {
 			session.beginTransaction();
-			Query q = session.createQuery(this.getHQL(desenhista));
-			List resultado = q.list();
+			Query q = session.createQuery(this.getHQLcomFiltro(desenhista));
+			List<Desenhista> resultado = (ArrayList<Desenhista>)q.list();
 			if(resultado != null && resultado.size() != 0){
 				desenhista = (Desenhista) q.list().get(0);
 			}else{
@@ -38,6 +43,20 @@ public class DesenhistasCRUD {
 			he.printStackTrace();
 		}
 		return desenhista;
+	}
+	
+	public List<Desenhista> listarTodos(){
+		Session session = HibernateUtils.getSession();
+		List<Desenhista> resultado = new ArrayList<Desenhista>();
+		try {
+			session.beginTransaction();
+			Query q = session.createQuery(this.getHQL());
+			resultado = (ArrayList<Desenhista>)q.list();
+			session.getTransaction().commit();
+		} catch (HibernateException he) {
+			he.printStackTrace();
+		}
+		return resultado;
 	}
 
 	public void atualizar(String nome, Desenhista desenhista) {
@@ -57,7 +76,13 @@ public class DesenhistasCRUD {
 	
 	
 	
-	private String getHQL(Desenhista desenhista) {
+	private String getHQL() {
+		StringBuilder query = new StringBuilder();
+		query.append("from Desenhista d");
+		return query.toString();
+	}
+	
+	private String getHQLcomFiltro(Desenhista desenhista) {
 		StringBuilder query = new StringBuilder();
 		StringBuilder condicao = new StringBuilder();
 		query.append("from Desenhista d");

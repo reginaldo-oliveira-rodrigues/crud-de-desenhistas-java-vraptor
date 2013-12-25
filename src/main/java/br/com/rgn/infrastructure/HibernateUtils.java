@@ -5,7 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.AnnotationConfiguration;
 
 public class HibernateUtils {
-	// TODO refatorar
+	
 	public static Session getSession() {
 		AnnotationConfiguration configuration = new AnnotationConfiguration();
 		configuration.configure();
