@@ -8,13 +8,13 @@
 			root
 		</property>
 		<property name="hibernate.connection.password">
-			<!-- insira aqui senha de root do mysql, se tiver -->
+			<!-- insira aqui senha do usuario do mariadb, se tiver -->
 		</property>
 		<property name="hibernate.connection.url">
-			jdbc:mysql://localhost:3306/editoravirtualdb
+			jdbc:mariadb://localhost:3306/editoravirtualdb
 		</property>
 		<property name="hibernate.connection.driver_class">
-			com.mysql.jdbc.Driver
+			org.mariadb.jdbc.Driver
 		</property>
 		<property name="hibernate.dialect">
 			org.hibernate.dialect.MySQL5InnoDBDialect

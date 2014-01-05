@@ -11,36 +11,22 @@ import br.com.rgn.cruddedesenhistasjavavraptor.entity.Desenhista;
 @Resource
 public class DesenhistasController {
 	private DesenhistasCRUD desenhistasCRUD;
-	private Result result;
+	
 	public DesenhistasController(Result result){
-		this.result = result;
 	}
 	
-	public void listar(){
+	public List<Desenhista> listar(){
 		List<Desenhista> desenhistas = new ArrayList<Desenhista>(); 
 		try{
 			desenhistas = desenhistasCRUD.listar();
 		}catch(NullPointerException nulo){
-			desenhistas =  criarDesenhistas_Provisorio();
+			
 		}
-		result.include("desenhistas", desenhistas);
+		return desenhistas;
 	}
 	
 	public void cadastro(){
         System.out.println("Cadastro de desenhistas em desenvolvimento!");
     }
-	
-	private List<Desenhista> criarDesenhistas_Provisorio() {
-		List<Desenhista> desenhistas = new ArrayList<Desenhista>();
-		Desenhista desenhista = new Desenhista();
-		desenhista.setNome("Bleck");
-		desenhista.setEmail("bleck@desenhoc.com.br");
-		desenhistas.add(desenhista);
-		desenhista = new Desenhista();
-		desenhista.setNome("Drock");
-		desenhista.setEmail("drock@desenhoc.com.br");
-		desenhistas.add(desenhista);
-		return desenhistas;
-	}
 	
 }

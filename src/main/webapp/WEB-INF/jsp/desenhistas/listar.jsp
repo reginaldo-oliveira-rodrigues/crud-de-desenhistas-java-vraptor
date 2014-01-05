@@ -5,7 +5,7 @@
 <body>
 	<h1>Desenhistas</h1>
 	<ul>
-		<c:forEach items="${desenhistas}" var="desenhista">
+		<c:forEach items="${desenhistaList}" var="desenhista">
 			<li>${desenhista.nome} - ${desenhista.email}</li>
 		</c:forEach>
 	</ul>
