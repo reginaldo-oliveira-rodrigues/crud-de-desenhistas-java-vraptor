@@ -7,6 +7,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 
+import br.com.caelum.vraptor.ioc.Component;
 import br.com.rgn.cruddedesenhistasjavavraptor.entity.Desenhista;
 import br.com.rgn.infrastructure.HibernateUtils;
 import br.com.rgn.utils.StringUtils;
@@ -16,6 +17,7 @@ import br.com.rgn.utils.StringUtils;
  * @author regis
  *
  */
+@Component
 public class DesenhistasCRUD {	
 
 	public Long cadastrar(Desenhista desenhista) {
@@ -46,13 +48,9 @@ public class DesenhistasCRUD {
 	}
 	
 	public List<Desenhista> listar(){
-		Session session = HibernateUtils.getSession();
 		List<Desenhista> resultado = new ArrayList<Desenhista>();
 		try {
-			session.beginTransaction();
-			Query q = session.createQuery(this.getHQL());
-			resultado = (ArrayList<Desenhista>)q.list();
-			session.getTransaction().commit();
+			resultado = (List<Desenhista>) HibernateUtils.getSession().createCriteria(Desenhista.class).list();
 		} catch (HibernateException he) {
 			he.printStackTrace();
 		}
@@ -75,12 +73,6 @@ public class DesenhistasCRUD {
 	
 	
 	
-	
-	private String getHQL() {
-		StringBuilder query = new StringBuilder();
-		query.append("from Desenhista d");
-		return query.toString();
-	}
 	
 	private String getHQLcomFiltro(Desenhista desenhista) {
 		StringBuilder query = new StringBuilder();

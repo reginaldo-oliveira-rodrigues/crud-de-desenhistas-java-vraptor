@@ -1,6 +1,6 @@
 package br.com.rgn.cruddedesenhistasjavavraptor;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import br.com.caelum.vraptor.Resource;
@@ -11,22 +11,21 @@ import br.com.rgn.cruddedesenhistasjavavraptor.entity.Desenhista;
 @Resource
 public class DesenhistasController {
 	private DesenhistasCRUD desenhistasCRUD;
+	private final Result result;
 	
-	public DesenhistasController(Result result){
+	public DesenhistasController(DesenhistasCRUD desenhistasCRUD, Result result){
+		this.desenhistasCRUD = desenhistasCRUD;
+		this.result = result;
 	}
 	
 	public List<Desenhista> listar(){
-		List<Desenhista> desenhistas = new ArrayList<Desenhista>(); 
-		try{
-			desenhistas = desenhistasCRUD.listar();
-		}catch(NullPointerException nulo){
-			
-		}
-		return desenhistas;
+		return desenhistasCRUD.listar();
 	}
 	
-	public void cadastro(){
-        System.out.println("Cadastro de desenhistas em desenvolvimento!");
-    }
+	public void formulario(){ /* isso eh soh pra direcionar para formulario.jsp */ }
 	
+	public void adiciona(Desenhista desenhista){
+		desenhistasCRUD.cadastrar(desenhista);
+	    result.redirectTo(this).listar();
+    }
 }

@@ -6,12 +6,12 @@
         <title>Título de página JSP de exemplo!</title>
     </head>
     <body>
-        <h1>Desenhistas Cadastrados</h1>
-        <br/>
         <div id="desenhistas"></div>
-        
-        
-        
+        <br/>
+        <br/>
+        <form action="desenhistas/formulario" method="POST">
+        	<input type="submit" value="Cadastrar"/>
+        </form>
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>
@@ -31,7 +31,7 @@
         };
         
         function avisarDeErro(){
-        	alert("falhou");
+        	
         };
         
         </script>
