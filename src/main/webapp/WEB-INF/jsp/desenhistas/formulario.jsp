@@ -8,13 +8,13 @@
 <body>
 	<form action="adiciona">
 		<fieldset>
-			<legend>Adicionar Produto</legend>
+			<legend>Adicionar Desenhista</legend>
 
 			<label for="nome">Nome:</label> 
 			<input id="nome" type="text" name="desenhista.nome" />
 			<br/>
 			<label for="email">E-Mail:</label>
-			<input id="email" type="text" name="desenhista.email"></textarea>
+			<input id="email" type="text" name="desenhista.email" />
 			<br/>
 			<label for="site">Site:</label> 
 			<input id="site" type="text" name="desenhista.site" />

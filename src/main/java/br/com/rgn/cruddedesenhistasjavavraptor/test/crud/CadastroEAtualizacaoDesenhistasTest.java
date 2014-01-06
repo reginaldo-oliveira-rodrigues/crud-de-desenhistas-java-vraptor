@@ -38,7 +38,7 @@ public class CadastroEAtualizacaoDesenhistasTest {
 		desenhista = desenhistasCRUD.consultar(desenhista);
 		String apelido = desenhista.getNome();
 		desenhista.setNome(nomeReal);
-		desenhistasCRUD.atualizar(apelido, desenhista);
+		desenhistasCRUD.atualizar(desenhista);
 		Desenhista desenhistaConsultado = desenhistasCRUD.consultar(desenhista);
 		Assert.assertNotEquals(apelido, desenhistaConsultado.getNome());
 	}

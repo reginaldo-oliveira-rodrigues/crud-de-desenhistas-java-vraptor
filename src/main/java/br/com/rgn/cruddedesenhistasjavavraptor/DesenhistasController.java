@@ -28,4 +28,16 @@ public class DesenhistasController {
 		desenhistasCRUD.cadastrar(desenhista);
 	    result.redirectTo(this).listar();
     }
+	
+	public Desenhista editar(Long id){
+		Desenhista desenhista = new Desenhista();
+		desenhista.setId(id);
+		return desenhistasCRUD.consultar(desenhista);
+    }
+	
+	public void atualizar(Desenhista desenhista){
+		desenhistasCRUD.atualizar(desenhista);
+	    result.redirectTo(this).listar();
+    }
+	
 }

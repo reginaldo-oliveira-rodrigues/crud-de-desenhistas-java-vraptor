@@ -12,6 +12,7 @@
 				<th>Nome</th>
 				<th>E-Mail</th>
 				<th>Site</th>
+				<th></th>
 			</tr>
 		</thead>
 		
@@ -21,6 +22,7 @@
 				<td>${desenhista.nome}</td>
 				<td>${desenhista.email}</td>
 				<td>${desenhista.site}</td>
+				<td><a href="editar?id=${desenhista.id}">Editar</a></td>
 			</tr>
 		</c:forEach>
 	</table>

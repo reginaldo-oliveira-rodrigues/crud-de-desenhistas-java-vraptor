@@ -57,10 +57,10 @@ public class DesenhistasCRUD {
 		return resultado;
 	}
 
-	public void atualizar(String nome, Desenhista desenhista) {
+	public void atualizar(Desenhista desenhista) {
 		Session session = HibernateUtils.getSession();
 		session.beginTransaction();
-		session.update(nome, desenhista);
+		session.update(desenhista);
 		session.getTransaction().commit();
 	}
 	
@@ -78,8 +78,17 @@ public class DesenhistasCRUD {
 		StringBuilder query = new StringBuilder();
 		StringBuilder condicao = new StringBuilder();
 		query.append("from Desenhista d");
+		if (desenhista.getId() != null) {
+			condicao.append(" where d.id = ");
+			condicao.append(desenhista.getId());
+		}
 		if (!StringUtils.isBlank(desenhista.getNome())) {
-			condicao.append(" where d.nome like '%");
+			if(StringUtils.isBlank(condicao.toString())){
+				condicao.append(" where ");
+			}else{
+				condicao.append(" and ");
+			}
+			condicao.append(" d.nome like '%");
 			condicao.append(desenhista.getNome());
 			condicao.append("%'");
 		}
@@ -105,6 +114,6 @@ public class DesenhistasCRUD {
 		}
 		query.append(condicao.toString());
 		return query.toString();
-	}
+	}	
 
 }

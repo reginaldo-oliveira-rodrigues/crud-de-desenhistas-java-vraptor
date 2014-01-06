@@ -13,17 +13,24 @@
         	<input type="submit" value="Cadastrar"/>
         </form>
         
+        <form action="desenhistas/listar" method="POST">
+        	<input type="submit" value="Ver Desenhistas"/>
+        </form>
+        
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>
         var data_type = "html";
         var url = "desenhistas/listar";
         $(document).ready(function(){
+        	/*
         	$.ajax({
     			dataType : data_type,
     			url : url,
     			success : mostrar_dados,
     			error : avisarDeErro
     		});
+        	*/
+        	
         });
         
         function mostrar_dados(data){
