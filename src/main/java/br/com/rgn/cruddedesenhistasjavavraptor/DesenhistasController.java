@@ -40,4 +40,11 @@ public class DesenhistasController {
 	    result.redirectTo(this).listar();
     }
 	
+	public void remover(Long id){
+		Desenhista desenhista = new Desenhista();
+		desenhista.setId(id);
+		desenhistasCRUD.remover(desenhista);
+		result.redirectTo(this).listar();
+	}
+	
 }

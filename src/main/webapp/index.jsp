@@ -8,14 +8,9 @@
     <body>
         <div id="desenhistas"></div>
         <br/>
+        <a href="desenhistas/listar" >Ver Desenhistas</a>
         <br/>
-        <form action="desenhistas/formulario" method="POST">
-        	<input type="submit" value="Cadastrar"/>
-        </form>
-        
-        <form action="desenhistas/listar" method="POST">
-        	<input type="submit" value="Ver Desenhistas"/>
-        </form>
+        <a href="desenhistas/formulario" >Cadastrar</a>
         
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>

@@ -23,6 +23,7 @@
 				<td>${desenhista.email}</td>
 				<td>${desenhista.site}</td>
 				<td><a href="editar?id=${desenhista.id}">Editar</a></td>
+				<td><a href="remover?id=${desenhista.id }">Remover</a></td>
 			</tr>
 		</c:forEach>
 	</table>
