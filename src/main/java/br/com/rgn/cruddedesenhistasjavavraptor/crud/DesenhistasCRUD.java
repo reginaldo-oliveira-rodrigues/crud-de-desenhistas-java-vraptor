@@ -75,45 +75,38 @@ public class DesenhistasCRUD {
 	
 	
 	private String getHQLcomFiltro(Desenhista desenhista) {
-		StringBuilder query = new StringBuilder();
-		StringBuilder condicao = new StringBuilder();
-		query.append("from Desenhista d");
+		String query = "from Desenhista d";
+		String condicao = "";
+		
 		if (desenhista.getId() != null) {
-			condicao.append(" where d.id = ");
-			condicao.append(desenhista.getId());
+			condicao += " where d.id = " + desenhista.getId();
 		}
 		if (!StringUtils.isBlank(desenhista.getNome())) {
 			if(StringUtils.isBlank(condicao.toString())){
-				condicao.append(" where ");
+				condicao += " where ";
 			}else{
-				condicao.append(" and ");
+				condicao += " and ";
 			}
-			condicao.append(" d.nome like '%");
-			condicao.append(desenhista.getNome());
-			condicao.append("%'");
+			condicao += " d.nome like '%" + desenhista.getNome() + "%'";
 		}
 		if (!StringUtils.isBlank(desenhista.getEmail())) {
 			if(StringUtils.isBlank(condicao.toString())){
-				condicao.append(" where ");
+				condicao += " where ";
 			}else{
-				condicao.append(" and ");
+				condicao += " and ";
 			}
-			condicao.append("d.email like '%");
-			condicao.append(desenhista.getEmail());
-			condicao.append("%'");
+			condicao += "d.email like '%" + desenhista.getEmail() + "%'";
 		}
 		if (!StringUtils.isBlank(desenhista.getSite())){
 			if(StringUtils.isBlank(condicao.toString())){
-				condicao.append(" where ");
+				condicao += " where ";
 			}else{
-				condicao.append(" and ");
+				condicao += " and ";
 			}
-			condicao.append("d.site like '%");
-			condicao.append(desenhista.getSite());
-			condicao.append("%'");
+			condicao += "d.site like '%"  + desenhista.getSite()  + "%'";
 		}
-		query.append(condicao.toString());
-		return query.toString();
+		query += condicao;
+		return query;
 	}	
 
 }
