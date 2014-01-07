@@ -1,9 +1,12 @@
 package br.com.rgn.cruddedesenhistasjavavraptor.test.crud;
 
 import static org.junit.Assert.assertEquals;
+
 import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import br.com.rgn.cruddedesenhistasjavavraptor.crud.DesenhistasCRUD;
 import br.com.rgn.cruddedesenhistasjavavraptor.entity.Desenhista;
 
@@ -14,7 +17,7 @@ public class ConsultaDesenhistasTest {
 	
 	@Before
 	public void setup(){
-		desenhistasCRUD = new DesenhistasCRUD();
+		desenhistasCRUD = CriadorDeDesenhistasCRUD.criar();
 		desenhista = new Desenhista();
 		desenhista.setNome("Fu");
 		desenhista.setEmail("em");

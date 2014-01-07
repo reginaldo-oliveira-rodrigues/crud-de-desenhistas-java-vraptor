@@ -1,8 +1,10 @@
 package br.com.rgn.cruddedesenhistasjavavraptor.test.crud;
 
 import static org.junit.Assert.assertNull;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import br.com.rgn.cruddedesenhistasjavavraptor.crud.DesenhistasCRUD;
 import br.com.rgn.cruddedesenhistasjavavraptor.entity.Desenhista;
 
@@ -13,7 +15,7 @@ public class RemocaoDesenhistasTest {
 	
 	@Before
 	public void setup(){
-		desenhistasCRUD = new DesenhistasCRUD();
+		desenhistasCRUD = CriadorDeDesenhistasCRUD.criar();
 		desenhista = new Desenhista();
 		desenhista.setNome("Fulano");
 	}

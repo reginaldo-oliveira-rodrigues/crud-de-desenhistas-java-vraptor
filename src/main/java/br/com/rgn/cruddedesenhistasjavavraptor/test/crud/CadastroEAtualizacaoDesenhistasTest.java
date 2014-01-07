@@ -1,11 +1,13 @@
 package br.com.rgn.cruddedesenhistasjavavraptor.test.crud;
 
 import static org.junit.Assert.assertEquals;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
+
 import br.com.rgn.cruddedesenhistasjavavraptor.crud.DesenhistasCRUD;
 import br.com.rgn.cruddedesenhistasjavavraptor.entity.Desenhista;
 
@@ -18,7 +20,7 @@ public class CadastroEAtualizacaoDesenhistasTest {
 	
 	@Before
 	public void setup(){
-		desenhistasCRUD = new DesenhistasCRUD();
+		desenhistasCRUD = CriadorDeDesenhistasCRUD.criar();
 		desenhista = new Desenhista();
 		desenhista.setNome("Ful");
 		desenhista.setEmail("email@dominio.com");

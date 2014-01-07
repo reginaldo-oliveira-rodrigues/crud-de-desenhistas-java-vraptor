@@ -9,19 +9,21 @@ import org.hibernate.Session;
 
 import br.com.caelum.vraptor.ioc.Component;
 import br.com.rgn.cruddedesenhistasjavavraptor.entity.Desenhista;
-import br.com.rgn.infrastructure.HibernateUtils;
 import br.com.rgn.utils.StringUtils;
 
 /**
  * Classe no padrão DAO para cadastrar, atualizar, selecionar ou excluir desenhistas cadastrados. 
- * @author regis
  *
  */
 @Component
 public class DesenhistasCRUD {	
-
+	private Session session;
+	
+	public DesenhistasCRUD(Session session){
+		this.session = session;
+	}
+	
 	public Long cadastrar(Desenhista desenhista) {
-		Session session = HibernateUtils.getSession();
 		session.beginTransaction();
 		Long id = (Long)session.save(desenhista);
 		session.getTransaction().commit();
@@ -29,7 +31,6 @@ public class DesenhistasCRUD {
 	}
 
 	public Desenhista consultar(Desenhista desenhista) {
-		Session session = HibernateUtils.getSession();
 		try {
 			session.beginTransaction();
 			Query q = session.createQuery(this.getHQLcomFiltro(desenhista));
@@ -50,7 +51,7 @@ public class DesenhistasCRUD {
 	public List<Desenhista> listar(){
 		List<Desenhista> resultado = new ArrayList<Desenhista>();
 		try {
-			resultado = (List<Desenhista>) HibernateUtils.getSession().createCriteria(Desenhista.class).list();
+			resultado = (List<Desenhista>) session.createCriteria(Desenhista.class).list();
 		} catch (HibernateException he) {
 			he.printStackTrace();
 		}
@@ -58,14 +59,12 @@ public class DesenhistasCRUD {
 	}
 
 	public void atualizar(Desenhista desenhista) {
-		Session session = HibernateUtils.getSession();
 		session.beginTransaction();
 		session.update(desenhista);
 		session.getTransaction().commit();
 	}
 	
 	public void remover(Desenhista desenhista) {
-		Session session = HibernateUtils.getSession();
 		session.beginTransaction();
 		session.delete(desenhista);
 		session.getTransaction().commit();
