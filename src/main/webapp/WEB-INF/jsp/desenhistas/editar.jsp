@@ -7,6 +7,11 @@
 	<title>Atualiação de Dados de Desenhistas</title>
 </head>
 <body>
+	<%@ include file="/WEB-INF/jsp/commons/header.jspf" %>
+	<br/>
+	<a href=${pageContext.request.contextPath} >Início</a>
+	<a href="listar" >Listar</a>
+	<br/>
 	<form action="atualizar">
 		<fieldset>
 			<legend>Atualização de Dados</legend>

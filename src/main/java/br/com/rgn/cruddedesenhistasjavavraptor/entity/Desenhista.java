@@ -1,20 +1,26 @@
 package br.com.rgn.cruddedesenhistasjavavraptor.entity;
 
 import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Desenhista implements Serializable{
 	
-	@Id @GeneratedValue
+	@Id
+	@GeneratedValue
 	private Long id;
 	
+	@NotNull(message="{nome.obrigatorio}")
 	private String nome;
 	
+	@NotNull(message="{email.obrigatorioevalido}")
 	private String email;
 	
+	@NotNull(message="{site.obrigatorio}")
 	private String site;
 
 	public Long getId() {

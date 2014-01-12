@@ -5,6 +5,7 @@
 <body>
 	<h1>Desenhistas</h1>
 	<a href=${pageContext.request.contextPath} >Início</a>
+	<a href="formulario" >Cadastrar</a>
 	<br/>
 	<table>
 		<thead>
@@ -16,7 +17,7 @@
 			</tr>
 		</thead>
 		
-		<!-- elementos de desenhistaList sao br.com.rgn.cruddedesenhistasjavavraptor.entity.Desenhista -->
+		<!-- elementos desta List veja br.com.rgn.cruddedesenhistasjavavraptor.entity.Desenhista -->
 		<c:forEach items="${desenhistaList}" var="desenhista">
 			<tr>
 				<td>${desenhista.nome}</td>

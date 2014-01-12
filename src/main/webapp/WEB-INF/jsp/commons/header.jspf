@@ -1,0 +1,8 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<div id="erros">
+	<ul>
+		<c:forEach items="${errors}" var="erro">
+			<li>${erro.category} - ${erro.message}</li>
+		</c:forEach>
+	</ul>
+</div>
