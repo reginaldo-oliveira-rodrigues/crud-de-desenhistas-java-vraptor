@@ -2,10 +2,20 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
+	<head>
+		<style type="text/css">
+			.link {
+			  	text-decoration: underline;
+			  	border: none;
+			  	background: none;
+			  	color: blue;
+			  	cursor: pointer;
+			}
+		</style>
+	</head>
 <body>
-	<h1>Desenhistas</h1>
 	<a href=${pageContext.request.contextPath} >Início</a>
-	<a href="formulario" >Cadastrar</a>
+	<a href="<c:url value="/desenhista/novo"/>" >Cadastrar</a>
 	<br/>
 	<table>
 		<thead>
@@ -23,8 +33,14 @@
 				<td>${desenhista.nome}</td>
 				<td>${desenhista.email}</td>
 				<td>${desenhista.site}</td>
-				<td><a href="editar?id=${desenhista.id}">Editar</a></td>
-				<td><a href="remover?id=${desenhista.id }">Remover</a></td>
+				<td>
+					<a href="<c:url value="/desenhista/${desenhista.id}"/>" >Editar</a>
+				</td>
+				<td>
+					<form action="<c:url value="/desenhista/${desenhista.id}"/>" method="POST">
+				    	<button class="link" name="_method" value="DELETE">Remover</button>
+				  	</form>
+				</td>
 			</tr>
 		</c:forEach>
 	</table>

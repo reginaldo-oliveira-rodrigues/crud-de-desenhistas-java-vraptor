@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +9,12 @@
 <body>
 	<%@ include file="/WEB-INF/jsp/commons/header.jspf" %>
 	<br/>
-	<a href=${pageContext.request.contextPath} >Início</a>
-	<a href="listar" >Listar</a>
+	<h1>Entra no esquema aí, cara!</h1>
 	<br/>
-	<form action="adiciona">
+	<a href=${pageContext.request.contextPath} >Início</a>
+	<a href="<c:url value="/desenhistas"/>" >Listar</a>
+	<br/>
+	<form action="<c:url value="/desenhistas"/>" method="POST">
 		<fieldset>
 			<legend>Adicionar Desenhista</legend>
 
@@ -24,7 +27,7 @@
 			<label for="site">Site:</label> 
 			<input id="site" type="text" name="desenhista.site" />
 			<br/>
-			<button type="submit">Enviar</button>
+			<button type="submit">Tô dentro!</button>
 		</fieldset>
 	</form>
 </body>

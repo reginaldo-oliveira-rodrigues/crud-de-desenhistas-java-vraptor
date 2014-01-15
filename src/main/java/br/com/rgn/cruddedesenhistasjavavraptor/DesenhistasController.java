@@ -2,6 +2,11 @@ package br.com.rgn.cruddedesenhistasjavavraptor;
 
 import java.util.List;
 
+import br.com.caelum.vraptor.Delete;
+import br.com.caelum.vraptor.Get;
+import br.com.caelum.vraptor.Path;
+import br.com.caelum.vraptor.Post;
+import br.com.caelum.vraptor.Put;
 import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
@@ -22,12 +27,15 @@ public class DesenhistasController {
 		this.validador = validador;
 	}
 
+	@Get("/desenhistas")
 	public List<Desenhista> listar() {
 		return desenhistasCRUD.listar();
 	}
-
+	
+	@Get("/desenhista/novo")
 	public void formulario() { /* isso eh soh pra direcionar para formulario.jsp */ }
 
+	@Post("/desenhistas")
 	public void adiciona(final Desenhista desenhista) {
 		validar(desenhista);
 		validador.onErrorUsePageOf(this).formulario();
@@ -59,13 +67,15 @@ public class DesenhistasController {
 			}
 		});
 	}
-
+	
+	@Get("/desenhista/{id}")
 	public Desenhista editar(Long id) {
 		Desenhista desenhista = new Desenhista();
 		desenhista.setId(id);
 		return desenhistasCRUD.consultar(desenhista);
 	}
 
+	@Put("/desenhista/{desenhista.id}")
 	public void atualizar(Desenhista desenhista) {
 		validar(desenhista);
 		validador.onErrorUsePageOf(this).formulario();
@@ -73,6 +83,7 @@ public class DesenhistasController {
 		result.redirectTo(this).listar();
 	}
 
+	@Delete("/desenhista/{id}")
 	public void remover(Long id) {
 		Desenhista desenhista = new Desenhista();
 		desenhista.setId(id);

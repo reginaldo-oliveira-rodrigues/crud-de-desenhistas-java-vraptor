@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,14 +10,14 @@
 <body>
 	<%@ include file="/WEB-INF/jsp/commons/header.jspf" %>
 	<br/>
-	<a href=${pageContext.request.contextPath} >Início</a>
-	<a href="listar" >Listar</a>
+	<h1>Atualiação de Dados de Desenhistas</h1>
 	<br/>
-	<form action="atualizar">
+	<a href=${pageContext.request.contextPath} >Início</a>
+	<a href="<c:url value="/desenhistas"/>" >Listar</a>
+	<br/>
+	<form action="<c:url value="/desenhista/${desenhista.id}"/>" method="POST">
 		<fieldset>
 			<legend>Atualização de Dados</legend>
-			<input id="id" type="hidden" name="desenhista.id" value="${desenhista.id}"/>
-			
 			<label for="nome">Nome:</label> 
 			<input id="nome" type="text" name="desenhista.nome" value="${desenhista.nome}"/>
 			<br/>
@@ -26,7 +27,7 @@
 			<label for="site">Site:</label> 
 			<input id="site" type="text" name="desenhista.site" value="${desenhista.site}"/>
 			<br/>
-			<button type="submit">Atualizar</button>
+			<button type="submit" name="_method" value="PUT">Atualizar</button>
 		</fieldset>
 	</form>
 </body>
